@@ -1,3 +1,4 @@
+/* Gael Gaytan A00835334
 %{
 #include <stdio.h>
 %}
@@ -6,7 +7,7 @@
 %%
 [0-9]+                  printf("inum ");
 [0-9]+"."[0-9]          printf("fnum ");
-[a-eg-hj-oq-z]          printf("id ");   // Exeptua 'f','i' y 'p'
+[a-eg-hj-oq-z]          printf("id ");   
 
 f                       printf ("floatdcl ");
 i                       printf ("intdcl ");
