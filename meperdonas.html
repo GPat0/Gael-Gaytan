@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Me perdonas?</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        cursor: pointer; /* Cambiamos el cursor para que se muestre como una mano */
+    }
+    h1 {
+        margin-top: 50px;
+    }
+    .option {
+        display: inline-block;
+        margin: 20px;
+        padding: 10px 20px;
+        font-size: 20px;
+        border: 2px solid #333;
+        transition: transform 0.3s ease;
+    }
+    .option:hover {
+        transform: scale(1.1);
+    }
+    .no {
+        position: absolute;
+        animation: none; /* Detenemos la animación anterior */
+    }
+</style>
+</head>
+<body>
+<h1>¿Me perdonas?</h1>
+<div>
+    <div class="option" onclick="mostrarImagen()">Sí</div>
+    <div class="option no" onmouseover="moverNo(event)" id="noOption">No</div>
+</div>
+<script>
+    function mostrarImagen() {
+        document.body.innerHTML = "<img src='https://m.media-amazon.com/images/I/51EkcMNDxvL._AC_UF894,1000_QL80_.jpg' alt='Te amo ❤️🐻'>";
+    }
+
+    function moverNo(event) {
+        var noOption = document.getElementById('noOption');
+        var rect = noOption.getBoundingClientRect();
+        var centerX = rect.left + rect.width / 2;
+        var centerY = rect.top + rect.height / 2;
+        var cursorX = event.clientX;
+        var cursorY = event.clientY;
+        var deltaX = centerX - cursorX;
+        var deltaY = centerY - cursorY;
+        var newX = rect.left + deltaX * 2;
+        var newY = rect.top + deltaY * 2;
+        noOption.style.left = newX + 'px';
+        noOption.style.top = newY + 'px';
+    }
+</script>
+</body>
+</html>
